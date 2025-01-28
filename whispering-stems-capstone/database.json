@@ -1,0 +1,280 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "fullName": "Jane Doe",
+        "email": "jane.doe@example.com",
+        "birthdayMonth": "January"
+      },
+      {
+        "id": 2,
+        "fullName": "John Smith",
+        "email": "john.smith@example.com",
+        "birthdayMonth": "February"
+      },
+      {
+        "id": 3,
+        "fullName": "Emily Johnson",
+        "email": "emily.johnson@example.com",
+        "birthdayMonth": "March"
+      },
+      {
+        "id": 4,
+        "fullName": "Michael Brown",
+        "email": "michael.brown@example.com",
+        "birthdayMonth": "April"
+      },
+      {
+        "id": 5,
+        "fullName": "Sarah Davis",
+        "email": "sarah.davis@example.com",
+        "birthdayMonth": "May"
+      }
+    ],
+    "flowers": [
+      {
+        "id": 1,
+        "name": "Carnation",
+        "colorId": 1,
+        "flowerDescription": "A beautiful flower with ruffled petals.",
+        "img": "link_to_image.jpg",
+        "birthdayImportance": "January",
+        "overview": "Symbol of admiration and love, perfect for January birthdays."
+      },
+      {
+        "id": 2,
+        "name": "Rose",
+        "colorId": 2,
+        "flowerDescription": "Classic flower of romance and beauty.",
+        "img": "link_to_image.jpg",
+        "birthdayImportance": "February",
+        "overview": "Represents love and passion."
+      },
+      {
+        "id": 3,
+        "name": "Tulip",
+        "colorId": 3,
+        "flowerDescription": "Elegant and colorful spring bloom.",
+        "img": "link_to_image.jpg",
+        "birthdayImportance": "March",
+        "overview": "Symbolizes perfect love and rebirth."
+      },
+      {
+        "id": 4,
+        "name": "Daffodil",
+        "colorId": 4,
+        "flowerDescription": "Cheerful yellow flower of spring.",
+        "img": "link_to_image.jpg",
+        "birthdayImportance": "April",
+        "overview": "Represents renewal and new beginnings."
+      },
+      {
+        "id": 5,
+        "name": "Lily",
+        "colorId": 5,
+        "flowerDescription": "Elegant flower with a sweet fragrance.",
+        "img": "link_to_image.jpg",
+        "birthdayImportance": "May",
+        "overview": "Symbolizes purity and devotion."
+      }
+    ],
+    "colors": [
+      {
+        "id": 1,
+        "name": "Red"
+      },
+      {
+        "id": 2,
+        "name": "Pink"
+      },
+      {
+        "id": 3,
+        "name": "Yellow"
+      },
+      {
+        "id": 4,
+        "name": "White"
+      },
+      {
+        "id": 5,
+        "name": "Orange"
+      }
+    ],
+    "meanings": [
+      {
+        "id": 1,
+        "meaningTag": "Love"
+      },
+      {
+        "id": 2,
+        "meaningTag": "Admiration"
+      },
+      {
+        "id": 3,
+        "meaningTag": "Friendship"
+      },
+      {
+        "id": 4,
+        "meaningTag": "Happiness"
+      },
+      {
+        "id": 5,
+        "meaningTag": "Purity"
+      }
+    ],
+    "arrangements": [
+      {
+        "id": 1,
+        "userId": 1,
+        "name": "Valentine's Bouquet",
+        "notes": "A romantic arrangement for Valentine's Day.",
+        "dateCreated": "2025-01-27T12:00:00Z",
+        "lastUpdated": "2025-01-27T12:30:00Z",
+        "img": "link_to_image.jpg"
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "name": "Spring Fling",
+        "notes": "A cheerful springtime arrangement.",
+        "dateCreated": "2025-01-27T13:00:00Z",
+        "lastUpdated": "2025-01-27T13:30:00Z",
+        "img": "link_to_image.jpg"
+      },
+      {
+        "id": 3,
+        "userId": 3,
+        "name": "Birthday Bliss",
+        "notes": "A special arrangement for a birthday.",
+        "dateCreated": "2025-01-27T14:00:00Z",
+        "lastUpdated": "2025-01-27T14:30:00Z",
+        "img": "link_to_image.jpg"
+      },
+      {
+        "id": 4,
+        "userId": 4,
+        "name": "Pure Elegance",
+        "notes": "An elegant arrangement for formal occasions.",
+        "dateCreated": "2025-01-27T15:00:00Z",
+        "lastUpdated": "2025-01-27T15:30:00Z",
+        "img": "link_to_image.jpg"
+      },
+      {
+        "id": 5,
+        "userId": 5,
+        "name": "Sunshine Bouquet",
+        "notes": "A bright and sunny arrangement to lift spirits.",
+        "dateCreated": "2025-01-27T16:00:00Z",
+        "lastUpdated": "2025-01-27T16:30:00Z",
+        "img": "link_to_image.jpg"
+      }
+    ],
+    "arrangement_likes": [
+      {
+        "id": 1,
+        "userId": 1,
+        "arrangementId": 1
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "arrangementId": 2
+      },
+      {
+        "id": 3,
+        "userId": 3,
+        "arrangementId": 3
+      },
+      {
+        "id": 4,
+        "userId": 4,
+        "arrangementId": 4
+      },
+      {
+        "id": 5,
+        "userId": 5,
+        "arrangementId": 5
+      }
+    ],
+    "flowers_meanings": [
+      {
+        "id": 1,
+        "flowerId": 1,
+        "meaningId": 1
+      },
+      {
+        "id": 2,
+        "flowerId": 2,
+        "meaningId": 2
+      },
+      {
+        "id": 3,
+        "flowerId": 3,
+        "meaningId": 3
+      },
+      {
+        "id": 4,
+        "flowerId": 4,
+        "meaningId": 4
+      },
+      {
+        "id": 5,
+        "flowerId": 5,
+        "meaningId": 5
+      }
+    ],
+    "arrangements_flowers": [
+      {
+        "id": 1,
+        "arrangementId": 1,
+        "flowerId": 1
+      },
+      {
+        "id": 2,
+        "arrangementId": 2,
+        "flowerId": 2
+      },
+      {
+        "id": 3,
+        "arrangementId": 3,
+        "flowerId": 3
+      },
+      {
+        "id": 4,
+        "arrangementId": 4,
+        "flowerId": 4
+      },
+      {
+        "id": 5,
+        "arrangementId": 5,
+        "flowerId": 5
+      }
+    ],
+    "meaning_arrangements": [
+      {
+        "id": 1,
+        "arrangementId": 1,
+        "meaningId": 1
+      },
+      {
+        "id": 2,
+        "arrangementId": 2,
+        "meaningId": 2
+      },
+      {
+        "id": 3,
+        "arrangementId": 3,
+        "meaningId": 3
+      },
+      {
+        "id": 4,
+        "arrangementId": 4,
+        "meaningId": 4
+      },
+      {
+        "id": 5,
+        "arrangementId": 5,
+        "meaningId": 5
+      }
+    ]
+  }
