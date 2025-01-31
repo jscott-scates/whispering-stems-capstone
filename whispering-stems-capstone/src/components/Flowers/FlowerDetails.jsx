@@ -17,8 +17,6 @@ export const FlowerDetails = () => {
         })
     }
 
-    console.log(currentFlower)
-
     //calls fetchAndSetFlowerAndMeanings dependent on the flowerId
     useEffect(() => {
         if (flowerId) {

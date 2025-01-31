@@ -25,13 +25,12 @@ export const MyArrangements = ({ user }) => {
         }
     }, [user])
 
-    console.log(filteredArrangements)
-
     if (!filteredArrangements) { return null }
+    console.log(setFilteredArrangements)
     return <>
         {/* arrangements content */}
         <div className="container mx-auto mt-8 p6">
-            <h2 className="text-2xl font-bold text-left text-stone-500">{setFilteredArrangements.length} Arrangements Made</h2>
+            <h2 className="text-2xl font-bold text-left text-stone-500">{filteredArrangements.length} Arrangements Made</h2>
             <hr className="w-70 text-left border-1 border-green-800" />
         </div>
         {/* container that holds the arrangement cards and filter bar */}

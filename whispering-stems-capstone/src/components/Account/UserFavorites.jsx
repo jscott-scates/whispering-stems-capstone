@@ -26,8 +26,6 @@ export const UserFavorites = ({user}) => {
         }
     },[allUserLikes, user])
 
-    console.log(filteredArrangements)
-
     return <>
         {/* user information content */}
         <div className="container mx-auto mt-8 p6">

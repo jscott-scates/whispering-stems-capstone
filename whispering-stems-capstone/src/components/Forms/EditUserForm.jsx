@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { getUserByUserId } from "../../Services/userServices"
+import { useNavigate, useParams } from "react-router-dom"
+import { editUserById, getUserByUserId } from "../../Services/userServices"
 
 export const EditUserForm = () => {
     const { userId } = useParams()
     const [currentUser, setCurrentUser] = useState()
+    const [userName, setUserName] = useState("")
+    const [userEmail, setUserEmail] = useState()
+    const navigate = useNavigate()
 
     const fetchAllData = () => {
         getUserByUserId(Number(userId)).then((userObj) => {
@@ -16,7 +19,26 @@ export const EditUserForm = () => {
         fetchAllData()
     }, [userId])
 
-    console.log(currentUser)
+    useEffect(() => {
+        if(currentUser){
+            setUserName(currentUser.fullName)
+            setUserEmail(currentUser.email)
+        }
+    },[currentUser])
+
+    const handleSaveChanges = (event) => {
+        event.preventDefault()
+        const editedUser = {
+            id: currentUser.id,
+            fullName: userName,
+            email: userEmail,
+            birthdayMonth: currentUser.birthdayMonth
+        }
+        editUserById(editedUser)
+        navigate(`/account`)
+
+
+    }
 
     if(!currentUser){return null}
     return <>
@@ -35,9 +57,11 @@ export const EditUserForm = () => {
                         id="first-name"
                         name="first-name"
                         type="text"
-                        value={currentUser.fullName}
+                        value={userName}
+                        onChange={(event) => {
+                            setUserName(event.target.value)
+                        }}
                         autoComplete="given-name"
-                        
                         className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-amber-300 sm:text-sm/6"
                     />
                 </div>
@@ -51,9 +75,11 @@ export const EditUserForm = () => {
                         id="email"
                         name="email"
                         type="email"
-                        value={currentUser.email}
+                        value={userEmail}
+                        onChange = {(event) => {
+                            setUserEmail(event.target.value)
+                        }}
                         autoComplete="email"
-                        
                         className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-amber-300 sm:text-sm/6"
                     />
                 </div>
@@ -62,6 +88,7 @@ export const EditUserForm = () => {
                 <button
                     type="submit"
                     className="w-full sm:w-auto rounded-md bg-amber-300 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-amber-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+                    onClick={handleSaveChanges}
                 >
                     Save Changes
                 </button>
