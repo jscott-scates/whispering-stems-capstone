@@ -10,10 +10,11 @@ import { ArrangementsList } from "../components/Arrangements/ArrangementsList"
 import { ArrangementDetails } from "../components/Arrangements/ArrangementDetails"
 import { Account } from "../components/Account/Account"
 import { EditArrangementForm } from "../components/Forms/EditArrangementForm"
+import { EditUserForm } from "../components/Forms/EditUserForm"
 
 
 export const ApplicationViews = () => {
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState()
 
   useEffect(() => {
     const localWhisperingStemsUser = localStorage.getItem("whisperingStems_user")
@@ -38,15 +39,18 @@ export const ApplicationViews = () => {
           <Route index element={<FloretLibrary />} />
           <Route path=":flowerId" element={<FlowerDetails />}/>
          </Route>
-         <Route>
-            <Route path="create-arrangement" element={<CreateNewArrangement currentUser={currentUser}/>}/>
-         </Route>
+         
+          <Route path="create-arrangement" element={<CreateNewArrangement currentUser={currentUser}/>}/>
+       
          <Route path="arrangements">
-            <Route index element={<ArrangementsList />} />
-            <Route path=":arrangementId" element={<ArrangementDetails />} />
+            <Route index element={<ArrangementsList currentUser={currentUser}/>} />
+            <Route path=":arrangementId" element={<ArrangementDetails currentUser={currentUser}/>} />
             <Route path=":arrangementId/edit-arrangement" element={<EditArrangementForm />} />
          </Route>
-         <Route path="account" element={<Account currentUser={currentUser} />} />
+         <Route path="account">
+            <Route index element={<Account currentUser={currentUser} />}/>
+            <Route path=":userId/edit-profile" element={<EditUserForm />} />
+         </Route>  
       </Route>
      
     </Routes>
