@@ -4,31 +4,32 @@ import { getMeaningByFlowerId } from "../../Services/flowerServices"
 export const Flower = ({flowerObj}) => { //fetchAndSetAllFlowers
     const [flowerMeanings, setFlowerMeanings] = useState()
 
-    
+    //fetches and sets the meanings associated with a specific flower id
     const fetchAndSetMeanings = () => {
         getMeaningByFlowerId(flowerObj.id).then((flowerMeaningsArray) => {
             setFlowerMeanings(flowerMeaningsArray)
         })
     }
-
+    //calls fetchAndSetMeanings dependent on the flowerObj
     useEffect(() => {
         if(flowerObj?.id) {
             fetchAndSetMeanings()
         }
     },[flowerObj])
 
-    console.log(flowerMeanings)
-
     if(!flowerMeanings || !flowerObj){return null}
     return <>
-        <section className="flower">
-            <div className="flower-info flower-img">
-                {flowerObj.img}
+        <div className="max-w-sm bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
+        {/* Image */}
+            <img src="/images/sample.jpg" alt="Card Image" className="w-full h-48 object-cover" />
+
+        {/* Card Content */}
+            <div className="p-4">
+                <h3 className="text-xl font-semibold text-stone-800 text-center">{flowerObj.name}</h3>
+                <p className="text-stone-500 mt-2">
+                    Meaning(s): {flowerMeanings?.map((flowerMeaning) => flowerMeaning.meaning.meaningTag).join(" ")}
+                </p>
             </div>
-            <div className="flower-info">
-                <h4>{flowerObj.name}</h4>
-                <h5>Meaning(s): {flowerMeanings?.map((flowerMeaning) => flowerMeaning.meaning.meaningTag).join(" ")}</h5>
-            </div>
-        </section>
+        </div>
     </>
 }
