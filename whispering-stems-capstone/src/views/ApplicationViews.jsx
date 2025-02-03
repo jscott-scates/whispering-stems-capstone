@@ -45,7 +45,7 @@ export const ApplicationViews = () => {
          <Route path="arrangements">
             <Route index element={<ArrangementsList currentUser={currentUser}/>} />
             <Route path=":arrangementId" element={<ArrangementDetails currentUser={currentUser}/>} />
-            <Route path=":arrangementId/edit-arrangement" element={<EditArrangementForm />} />
+            <Route path=":arrangementId/edit-arrangement" element={<EditArrangementForm currentUser={currentUser}/>} />
          </Route>
          <Route path="account">
             <Route index element={<Account currentUser={currentUser} />}/>

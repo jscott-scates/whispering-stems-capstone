@@ -1,5 +1,5 @@
-import { Link, useParams } from "react-router-dom"
-import { getArrangementByArrangementId, getFlowersByArrangementId, getMeaningByArrangementId } from "../../Services/arrangementsServices"
+import { Link, useNavigate, useParams } from "react-router-dom"
+import { deleteAllFlowersByArrangementId, deleteArrangement, deleteArrangementMeaning, getArrangementByArrangementId, getFlowersByArrangementId, getMeaningByArrangementId } from "../../Services/arrangementsServices"
 import { useEffect, useState } from "react"
 import { Flower } from "../Flowers/Flower"
 
@@ -8,30 +8,43 @@ export const ArrangementDetails = ({ currentUser }) => {
     const [currentArrangement, setCurrentArrangement] = useState({})
     const [meaning, setArrangementMeaning] = useState()
     const [allArrangementFlowers, setAllArrangementFlowers] = useState()
+    const [drilledDownFlowers, setDrilledDownFlowers] = useState()
+    const navigate = useNavigate()
 
     const fetchAndSetArrangementsMeaningsFlowers = () => {
         getArrangementByArrangementId(Number(arrangementId)).then((arrangementObj) => {
             setCurrentArrangement(arrangementObj)
         })
         getMeaningByArrangementId(Number(arrangementId)).then((meaningObj) => {
-            console.log({ meaningObj});
             setArrangementMeaning(meaningObj[0])
         })
         getFlowersByArrangementId(Number(arrangementId)).then((flowersArray) => {
             setAllArrangementFlowers(flowersArray)
         })
     }
-
+    
+    const handleDelete = async () => {
+        await deleteArrangementMeaning(currentArrangement.id)
+        await deleteAllFlowersByArrangementId(currentArrangement)
+        await deleteArrangement(currentArrangement.id)
+        navigate("/arrangements")
+    }
+    console.log(currentArrangement)
     useEffect(() => {
         if (arrangementId) {
             fetchAndSetArrangementsMeaningsFlowers()
         }
     }, [arrangementId])
 
-    console.log({meaning})
+    useEffect(() => {
+        if (allArrangementFlowers) {
+            const flowers = allArrangementFlowers.map(arrangementFlower => arrangementFlower.flower)
+            setDrilledDownFlowers(flowers)
+        }
+    }, [allArrangementFlowers])
 
-
-    if (!currentArrangement || !meaning || !currentUser || !allArrangementFlowers) { return null }
+    console.log(drilledDownFlowers)
+    if (!currentArrangement || !meaning || !currentUser || !drilledDownFlowers) { return null }
     return <>
         {/*This is a container that contains all elements related to  the arrangement */}
         <div className="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start px-8 py-12">
@@ -55,12 +68,12 @@ export const ArrangementDetails = ({ currentUser }) => {
                             {/* Meanings Displayed Here inline with meanings */}
                             <div>
                                 <span className="font-semibold text-stone-700">
-                                Meaning: </span> {meaning.meaning.meaningTag}
+                                    Meaning: </span> {meaning.meaning.meaningTag}
                             </div>
                             {/* Date Created Displayed Here inline with meanings */}
                             <div>
                                 <span className="font-semibold text-stone-700 pl-15px">
-                                Created on </span> {currentArrangement.dateCreated}
+                                    Created on </span> {currentArrangement.dateCreated}
                             </div>
                         </div>
                         {/* Container that holds the flowers in arrangement cards */}
@@ -74,8 +87,7 @@ export const ArrangementDetails = ({ currentUser }) => {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                                     {/* container for individual cards */}
                                     {
-                                        allArrangementFlowers.map(flowerObj => {
-                                            console.log(flowerObj)
+                                        drilledDownFlowers.map(flowerObj => {
                                             return (
                                                 <Link to={`/floret-library/${flowerObj.id}`} key={flowerObj.id}>
                                                     <Flower flowerObj={flowerObj} />
@@ -92,12 +104,19 @@ export const ArrangementDetails = ({ currentUser }) => {
                                     <p className="text-stone-700 leading-relaxed">{currentArrangement.notes}</p>
                                 </div>
                             </div>
+                            <div>
+                                {currentUser.id === currentArrangement.userId && (
+                                    <>
+                                        {<button className="mt-4 bg-amber-300 text-white px-4 py-2 rounded-lg hover:bg-amber-500 transition" onClick={(event) => { event.preventDefault(); navigate(`/arrangements/${currentArrangement.id}/edit-arrangement`) }}>Edit Arrangement</button>}
+                                        {<button className="mt-4 bg-red-300 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition" onClick={handleDelete}>Delete Arrangement</button>}
+                                    </>
+                                )}
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-        </div>
-    </>
+        </>
 }
 

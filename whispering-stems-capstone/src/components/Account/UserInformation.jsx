@@ -49,7 +49,7 @@ export const UserInformation = ({ user }) => {
                     className="w-full sm:w-auto rounded-md bg-amber-300 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-amber-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
                     onClick = {(event) => {
                         event.preventDefault()
-                        navigate(`${user[0].id}/edit-profile`)
+                        navigate(`${user.id}/edit-profile`)
                     }}
                 >
                     Edit Profile

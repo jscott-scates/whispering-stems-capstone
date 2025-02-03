@@ -10,8 +10,6 @@ export const Arrangement = ({arrangementObj, user, fetchAndSetAllArrangements}) 
     const [filteredLikes, setFilteredLikes] = useState([])
     const navigate = useNavigate()
 
-    console.log({ arrangementMeanings, arrangementObj})
-
     //Dependecy array dictates to getMeaningsByArrangementId and getAllArrangementLikes if there are changes to the arrangementObj or user
     useEffect(() => {
         if(arrangementObj){
@@ -55,7 +53,7 @@ export const Arrangement = ({arrangementObj, user, fetchAndSetAllArrangements}) 
     const handleDeleteLike = (event) => {
         event.preventDefault()
         const findArrangementLike = filteredLikes.find((userLike) => userLike.userId === user.id)
-        console.log(findArrangementLike.id)
+    
         deleteUserLikeEntry(findArrangementLike.id)
         fetchAndSetAllArrangements()
     }
