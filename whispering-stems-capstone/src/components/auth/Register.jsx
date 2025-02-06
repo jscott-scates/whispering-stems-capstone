@@ -59,7 +59,7 @@ export const Register = (props) => {
               className="form-control"
               placeholder="Enter your name"
               required
-              autoFocus
+              autoFocus 
             />
           </div>
         </fieldset>
