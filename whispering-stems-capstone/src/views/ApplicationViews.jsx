@@ -20,7 +20,7 @@ export const ApplicationViews = () => {
     const localWhisperingStemsUser = localStorage.getItem("whisperingStems_user")
     const whisperingStemsUserObj = JSON.parse(localWhisperingStemsUser)
     setCurrentUser(whisperingStemsUserObj)
-  },[])
+  }, [])
 
   return (
     <Routes>
@@ -31,28 +31,28 @@ export const ApplicationViews = () => {
             <Navbar />
             <Outlet />
           </>
-        }  
+        }
       >
-         <Route index element={<Welcome  currentUser={currentUser}/>} />
-         <Route path="about" element={<About />}/>
-         <Route path="floret-library">
+        <Route index element={<Welcome currentUser={currentUser} />} />
+        <Route path="about" element={<About />} />
+        <Route path="floret-library">
           <Route index element={<FloretLibrary />} />
-          <Route path=":flowerId" element={<FlowerDetails />}/>
-         </Route>
-         
-          <Route path="create-arrangement" element={<CreateNewArrangement currentUser={currentUser}/>}/>
-       
-         <Route path="arrangements">
-            <Route index element={<ArrangementsList currentUser={currentUser}/>} />
-            <Route path=":arrangementId" element={<ArrangementDetails currentUser={currentUser}/>} />
-            <Route path=":arrangementId/edit-arrangement" element={<EditArrangementForm currentUser={currentUser}/>} />
-         </Route>
-         <Route path="account">
-            <Route index element={<Account currentUser={currentUser} />}/>
-            <Route path=":userId/edit-profile" element={<EditUserForm />} />
-         </Route>  
+          <Route path=":flowerId" element={<FlowerDetails />} />
+        </Route>
+
+        <Route path="create-arrangement" element={<CreateNewArrangement currentUser={currentUser} />} />
+
+        <Route path="arrangements">
+          <Route index element={<ArrangementsList currentUser={currentUser} />} />
+          <Route path=":arrangementId" element={<ArrangementDetails currentUser={currentUser} />} />
+          <Route path=":arrangementId/edit-arrangement" element={<EditArrangementForm currentUser={currentUser} />} />
+        </Route>
+        <Route path="account">
+          <Route index element={<Account currentUser={currentUser} />} />
+          <Route path=":userId/edit-profile" element={<EditUserForm />} />
+        </Route>
       </Route>
-     
+
     </Routes>
   )
 }
