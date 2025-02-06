@@ -63,9 +63,9 @@ export const ArrangementFilterBar = ({ setSearchTerm, setMeaningSelection, searc
                 </label>
             </div>
             {/* Show All Arrangement Button (Resets searches) */}
-            <button 
-            className="bg-green-700 text-white px-6 py-2 rounded-md hover:bg-green-900 transition"
-            onClick={handleResettingSearches}
+            <button
+                className="bg-green-700 text-white px-6 py-2 rounded-md hover:bg-green-900 transition"
+                onClick={handleResettingSearches}
             >
                 Show All Flowers
             </button>

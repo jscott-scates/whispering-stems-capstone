@@ -1,7 +1,12 @@
-import { useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export const UserInformation = ({ user }) => {
     const navigate = useNavigate()
+
+    const handleUserUpdates = (event) => {
+        event.preventDefault()
+        navigate(`${user.id}/edit-profile`)
+    }
 
     if (!user) { return null }
     return <>
@@ -47,10 +52,7 @@ export const UserInformation = ({ user }) => {
                 <button
                     type="submit"
                     className="w-full sm:w-auto rounded-md bg-amber-300 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-amber-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
-                    onClick = {(event) => {
-                        event.preventDefault()
-                        navigate(`${user.id}/edit-profile`)
-                    }}
+                    onClick={handleUserUpdates}
                 >
                     Edit Profile
                 </button>

@@ -20,11 +20,11 @@ export const EditUserForm = () => {
     }, [userId])
 
     useEffect(() => {
-        if(currentUser){
+        if (currentUser) {
             setUserName(currentUser.fullName)
             setUserEmail(currentUser.email)
         }
-    },[currentUser])
+    }, [currentUser])
 
     const handleSaveChanges = (event) => {
         event.preventDefault()
@@ -40,7 +40,7 @@ export const EditUserForm = () => {
 
     }
 
-    if(!currentUser){return null}
+    if (!currentUser) { return null }
     return <>
         {/* user information content */}
         <div className="container mx-auto mt-8 p6">
@@ -76,7 +76,7 @@ export const EditUserForm = () => {
                         name="email"
                         type="email"
                         value={userEmail}
-                        onChange = {(event) => {
+                        onChange={(event) => {
                             setUserEmail(event.target.value)
                         }}
                         autoComplete="email"

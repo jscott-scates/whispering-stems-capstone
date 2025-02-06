@@ -36,25 +36,24 @@ export const ArrangementsList = ({ currentUser }) => {
         }
     }, [currentUser])
 
-    //Runs anytime the searchTerm changes to setFilteredArrangements to arrangements that contain searchTerm in the name
-    useEffect(() => {
-        if (allArrangements) {
-            const foundArrangements = allArrangements.filter(arrangement => arrangement.name.toLowerCase().includes(searchTerm.toLowerCase()))
-            setFilteredArrangements(foundArrangements)
-        }
-    }, [searchTerm, allArrangements])
 
-    //Runs anytime the meaningSelection changes to setFilteredFlowers to flowers that contain the meaningSelection in the meaningTag
+
     useEffect(() => {
-        if (!meaningSelection) {
-            setFilteredArrangements(allArrangements)
-            return
+        let filteredResults = allArrangements;
+
+        // if a search term exists
+        if (searchTerm) {
+            filteredResults = filteredResults.filter(arrangement => arrangement.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        };
+
+        //if meaningSelection exists
+        if (meaningSelection) {
+            const foundArrangements = allArrangementMeanings.filter(arrangementMeaning => arrangementMeaning.meaning.meaningTag === meaningSelection)
+            const foundArrangementIds = foundArrangements.map(arrangement => arrangement.arrangementId)
+            filteredResults = filteredResults.filter(arrangement => foundArrangementIds.includes(arrangement.id))
         }
-        const foundArrangements = allArrangementMeanings.filter(arrangementMeaning => arrangementMeaning.meaning.meaningTag === meaningSelection)
-        const foundArrangementIds = foundArrangements.map(arrangement => arrangement.arrangementId)
-        const matchedMeaningsArrangements = allArrangements.filter(arrangement => foundArrangementIds.includes(arrangement.id))
-        setFilteredArrangements(matchedMeaningsArrangements)
-    }, [meaningSelection, allArrangementMeanings])
+        setFilteredArrangements(filteredResults)
+    }, [searchTerm, allArrangements, meaningSelection, allArrangementMeanings])
 
     if (!filteredArrangements || !currentUser) { return null }
     return <>
