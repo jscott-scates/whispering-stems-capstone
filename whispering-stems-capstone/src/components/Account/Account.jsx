@@ -6,7 +6,7 @@ import { BirthdayFlowers } from "./BirthdayFlowers"
 import { UserFavorites } from "./UserFavorites"
 import { useNavigate } from "react-router-dom"
 
-export const Account = ({currentUser}) => {
+export const Account = ({ currentUser }) => {
     const [activeTab, setActiveTab] = useState("My Arrangements") //default state is set to render the "My Arrangements" section of the user profile.
     const [user, setUser] = useState()
     const navigate = useNavigate()
@@ -18,10 +18,10 @@ export const Account = ({currentUser}) => {
     }
 
     useEffect(() => {
-        if(currentUser){
+        if (currentUser) {
             fetchAndSetAllNeededData()
-        }    
-    },[currentUser])
+        }
+    }, [currentUser])
 
     const tabs = [
         "My Arrangements",
@@ -41,13 +41,13 @@ export const Account = ({currentUser}) => {
                         <button
                             key={tab}
                             className={`block w-full text-left px-4 py-2 rounded-lg transition ${activeTab === tab
-                                    ? "bg-blue-500 text-white font-semibold"
-                                    : "text-gray-700 hover:bg-gray-200"
+                                ? "bg-amber-300 text-white font-semibold"
+                                : "text-gray-700 hover:bg-gray-200"
                                 }`}
                             onClick={() => {
-                                if(tab === "Sign Out"){
+                                if (tab === "Sign Out") {
                                     localStorage.removeItem("whisperingStems_user")
-                                    navigate("/", { replace: true }) 
+                                    navigate("/", { replace: true })
                                 }
                                 setActiveTab(tab)
                             }}
@@ -60,10 +60,10 @@ export const Account = ({currentUser}) => {
 
             {/* Tab Content - 2/3 of the Page */}
             <div className="col-span-2 p-6 border border-gray-300 rounded-lg shadow-md bg-white">
-                {activeTab === "My Arrangements" && <MyArrangements user={user}/>}
-                {activeTab === "User Information" && <UserInformation user={user}/>}
-                {activeTab === "Birthday Flowers" && <BirthdayFlowers user={user}/>}
-                {activeTab === "Favorites" && <UserFavorites user={user}/>}
+                {activeTab === "My Arrangements" && <MyArrangements user={user} />}
+                {activeTab === "User Information" && <UserInformation user={user} />}
+                {activeTab === "Birthday Flowers" && <BirthdayFlowers user={user} />}
+                {activeTab === "Favorites" && <UserFavorites user={user} />}
                 {activeTab === "Sign Out" && <p className="text-red-500">Logging out now.</p>}
             </div>
         </div>

@@ -171,11 +171,6 @@
     ],
     "arrangement_likes": [
       {
-        "id": 1,
-        "userId": 1,
-        "arrangementId": 1
-      },
-      {
         "id": 2,
         "userId": 2,
         "arrangementId": 2

@@ -1,7 +1,7 @@
 import { getAllColors, getAllMeanings } from "../../Services/flowerServices"
 import { useState, useEffect } from "react"
 
-export const FilterBar = ({ setColorSelection, setMeaningSelection, setSearchTerm, searchTerm, colorSelection, meaningSelection}) => {
+export const FilterBar = ({ setColorSelection, setMeaningSelection, setSearchTerm, searchTerm, colorSelection, meaningSelection }) => {
     const [allMeanings, setAllMeanings] = useState([])
     const [allColors, setAllColors] = useState([])
 
@@ -94,9 +94,9 @@ export const FilterBar = ({ setColorSelection, setMeaningSelection, setSearchTer
                 </label>
             </div>
             {/* Show All Flowers Button (Resets searches) */}
-            <button 
-            className="bg-green-700 text-white px-6 py-2 rounded-md hover:bg-green-900 transition"
-            onClick={handleResettingSearches}
+            <button
+                className="bg-green-700 text-white px-6 py-2 rounded-md hover:bg-green-900 transition"
+                onClick={handleResettingSearches}
             >
                 Show All Flowers
             </button>

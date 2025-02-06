@@ -33,7 +33,7 @@ export const ApplicationViews = () => {
           </>
         }  
       >
-         <Route index element={<Welcome />} />
+         <Route index element={<Welcome  currentUser={currentUser}/>} />
          <Route path="about" element={<About />}/>
          <Route path="floret-library">
           <Route index element={<FloretLibrary />} />
