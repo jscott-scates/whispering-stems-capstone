@@ -12,7 +12,7 @@ const generateImage = async (arrangement) => {
     .join(", ");
 
   // Construct a descriptive prompt
-  const prompt = `A beautiful bouquet that only includes ${flowerDetails} in a delicate vase centered in frame with dark background.`;
+  const prompt = `Create a high-quality image of a beautiful floral arrangement that features only ${flowerDetails.toLowerCase()}. The arrangement should be in a vase and is displayed against a background that enhances the colors and textures of the flowers. The arrangement is well-balanced, vibrant, and visually pleasing, with intricate details of petals, leaves, and stems. Ensure a natural and realistic depiction while avoiding overly stylized or abstract elements.`;
 
   try {
     const response = await axios.post(
@@ -25,7 +25,7 @@ const generateImage = async (arrangement) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_APP_OPENAI_API_KEY}`,
+          Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
           "Content-Type": "application/json",
         },
       }
