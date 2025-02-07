@@ -1,6 +1,6 @@
 
 export const getAllFlowers = () => {
-    return fetch(`http://localhost:8088/flowers?_expand=color&_embed=flowers_meanings`).then(res => res.json())
+    return fetch(`http://localhost:8088/flowers?_expand=color`).then(res => res.json())
 }
 
 export const getAllMeanings = () => {

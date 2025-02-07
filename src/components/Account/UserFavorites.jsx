@@ -8,6 +8,8 @@ export const UserFavorites = ({ user }) => {
     const [allUserLikes, setAllUserLikes] = useState([])
     const [filteredArrangements, setFilteredArrangements] = useState([])
 
+    console.log(filteredArrangements)
+
     const fetchAndSetAllData = () => {
         getAllArrangementLikes().then((userLikesArray) => {
             setAllUserLikes(userLikesArray)
@@ -37,8 +39,8 @@ export const UserFavorites = ({ user }) => {
             {
                 filteredArrangements.map(arrangementObj => {
                     return (
-                        <Link to={`/arrangements/${arrangementObj.id}`} key={arrangementObj.id}>
-                            <Arrangement arrangementObj={arrangementObj} user={user} fetchAndSetAllArrangements={() => fetchAndSetAllArrangements()} />
+                        <Link to={`/arrangements/${arrangementObj.arrangement.id}`} key={arrangementObj.arrangement.id}>
+                            <Arrangement arrangementObj={arrangementObj.arrangement} user={user} fetchAndSetAllArrangements={() => fetchAndSetAllArrangements()} />
                         </Link>
                     )
                 })

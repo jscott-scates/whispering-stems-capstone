@@ -41,7 +41,7 @@ export const FloretLibrary = () => {
         //filter by meaning if meaningSelection Exists
         if (meaningSelection) {
             const foundFlowers = allFlowerMeanings.filter(flowerMeaning => flowerMeaning.meaning.meaningTag === meaningSelection)
-            const foundFlowerIds = foundFlowers.map(flower => flower.flowerId)
+            const foundFlowerIds = foundFlowers.map(flower => flower.flowerId)  
             filteredResults = filteredResults.filter(flower => foundFlowerIds.includes(flower.id))
         }
 

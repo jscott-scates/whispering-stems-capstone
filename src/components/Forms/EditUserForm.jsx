@@ -6,7 +6,7 @@ export const EditUserForm = () => {
     const { userId } = useParams()
     const [currentUser, setCurrentUser] = useState()
     const [userName, setUserName] = useState("")
-    const [userEmail, setUserEmail] = useState()
+    const [userEmail, setUserEmail] = useState("")
     const navigate = useNavigate()
 
     const fetchAllData = () => {
@@ -43,11 +43,11 @@ export const EditUserForm = () => {
     if (!currentUser) { return null }
     return <>
         {/* user information content */}
-        <div className="container mx-auto mt-8 p6">
+        <div className="container mx-auto mt-8 pl-6">
             <h2 className="text-2xl font-bold text-left text-stone-500">User Information</h2>
             <hr className="w-70 text-left border-1 border-green-800" />
         </div>
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pl-6 pt-1">
             <div className="sm:col-span-3">
                 <label htmlFor="first-name" className="block text-sm/6 font-medium text-stone-700">
                     Full Name

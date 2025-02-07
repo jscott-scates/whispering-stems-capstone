@@ -33,7 +33,7 @@
   ],
   "flowers": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Carnation",
       "colorId": 1,
       "flowerDescription": "A beautiful flower with ruffled petals.",
@@ -42,7 +42,7 @@
       "overview": "Symbol of admiration and love, perfect for January birthdays."
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Rose",
       "colorId": 2,
       "flowerDescription": "Classic flower of romance and beauty.",
@@ -51,7 +51,7 @@
       "overview": "Represents love and passion."
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Tulip",
       "colorId": 3,
       "flowerDescription": "Elegant and colorful spring bloom.",
@@ -60,7 +60,7 @@
       "overview": "Symbolizes perfect love and rebirth."
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Daffodil",
       "colorId": 4,
       "flowerDescription": "Cheerful yellow flower of spring.",
@@ -69,7 +69,7 @@
       "overview": "Represents renewal and new beginnings."
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Lily",
       "colorId": 5,
       "flowerDescription": "Elegant flower with a sweet fragrance.",
@@ -185,6 +185,33 @@
       "lastUpdated": "2025-02-07T13:40:26.663Z",
       "img": "https://res.cloudinary.com/dl10z3olb/image/upload/v1738935642/lns0h6qcbba3k0rpydxa.png",
       "id": 7
+    },
+    {
+      "userId": 1,
+      "name": "Creating A Test Arrangement",
+      "notes": "This is a feature example.",
+      "dateCreated": "2025-02-07T19:36:28.266Z",
+      "lastUpdated": "2025-02-07T19:36:28.266Z",
+      "img": "https://res.cloudinary.com/dl10z3olb/image/upload/v1738957001/h4rm7zxpdje9nfxctabq.png",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "name": "Feature Example",
+      "notes": "This is an example arrangement",
+      "dateCreated": "2025-02-07T19:37:28.113Z",
+      "lastUpdated": "2025-02-07T19:37:28.113Z",
+      "img": "https://res.cloudinary.com/dl10z3olb/image/upload/v1738957059/d3dkjbjexbowpm5fnrzk.png",
+      "id": 9
+    },
+    {
+      "id": 10,
+      "userId": 1,
+      "name": "Feature",
+      "notes": "This is an example of the create new arrangement feature.",
+      "dateCreated": "2025-02-07T20:05:57.679Z",
+      "lastUpdated": "2025-02-07T20:06:21.193Z",
+      "img": "https://res.cloudinary.com/dl10z3olb/image/upload/v1738958796/dcelnlxarbzbyr7vmiyc.png"
     }
   ],
   "arrangement_likes": [
@@ -245,13 +272,8 @@
     },
     {
       "userId": 1,
-      "arrangementId": 5,
+      "arrangementId": 2,
       "id": 13
-    },
-    {
-      "userId": 1,
-      "arrangementId": 3,
-      "id": 14
     }
   ],
   "flowers_meanings": [
@@ -376,6 +398,41 @@
       "arrangementId": 1,
       "flowerId": "5",
       "id": 24
+    },
+    {
+      "arrangementId": 8,
+      "flowerId": 1,
+      "id": 25
+    },
+    {
+      "arrangementId": 8,
+      "flowerId": 4,
+      "id": 26
+    },
+    {
+      "arrangementId": 9,
+      "flowerId": 1,
+      "id": 27
+    },
+    {
+      "arrangementId": 9,
+      "flowerId": 4,
+      "id": 28
+    },
+    {
+      "arrangementId": 10,
+      "flowerId": 2,
+      "id": 29
+    },
+    {
+      "arrangementId": 10,
+      "flowerId": 5,
+      "id": 30
+    },
+    {
+      "arrangementId": 10,
+      "flowerId": 3,
+      "id": 31
     }
   ],
   "meaning_arrangements": [
@@ -413,6 +470,21 @@
       "arrangementId": 7,
       "meaningId": 3,
       "id": 7
+    },
+    {
+      "arrangementId": 8,
+      "meaningId": 2,
+      "id": 8
+    },
+    {
+      "arrangementId": 9,
+      "meaningId": 2,
+      "id": 9
+    },
+    {
+      "id": 10,
+      "arrangementId": 10,
+      "meaningId": 2
     }
   ]
 }
